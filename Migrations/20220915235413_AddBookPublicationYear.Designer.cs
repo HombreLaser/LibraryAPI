@@ -3,6 +3,7 @@ using System;
 using LibraryAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LibraryAPI.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    partial class LibraryContextModelSnapshot : ModelSnapshot
+    [Migration("20220915235413_AddBookPublicationYear")]
+    partial class AddBookPublicationYear
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,7 +44,6 @@ namespace LibraryAPI.Migrations
                         .HasColumnType("text");
 
                     b.Property<int>("PublicationYear")
-                        .IsRequired()
                         .HasColumnType("integer");
 
                     b.Property<string>("Title")

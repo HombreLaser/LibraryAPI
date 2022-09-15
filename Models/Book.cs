@@ -6,10 +6,10 @@ namespace LibraryAPI.Models {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
-        public DateTime PublicationDate { get; set; }
-
+        public int PublicationYear { get; set; }
         public string[] Genres { get; set; }
         public int Edition { get; set; }
         public string ISBN { get; set; }
+        public string Title { get; set; }
     }
 }

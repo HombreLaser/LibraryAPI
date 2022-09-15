@@ -9695,11 +9695,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/mnt/Personal/Documentos/LCC/7mo Semestre/BackEnd/LibraryAPI/LibraryAPI.csproj",
+      "projectUniqueName": "/home/luis/Documentos/LCC/7mo Semestre/BackEnd/LibraryAPI/LibraryAPI.csproj",
       "projectName": "LibraryAPI",
-      "projectPath": "/mnt/Personal/Documentos/LCC/7mo Semestre/BackEnd/LibraryAPI/LibraryAPI.csproj",
+      "projectPath": "/home/luis/Documentos/LCC/7mo Semestre/BackEnd/LibraryAPI/LibraryAPI.csproj",
       "packagesPath": "/home/luis/.nuget/packages/",
-      "outputPath": "/mnt/Personal/Documentos/LCC/7mo Semestre/BackEnd/LibraryAPI/obj/",
+      "outputPath": "/home/luis/Documentos/LCC/7mo Semestre/BackEnd/LibraryAPI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/luis/.nuget/NuGet/NuGet.Config"
