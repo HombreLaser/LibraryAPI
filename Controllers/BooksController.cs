@@ -9,7 +9,7 @@ using LibraryAPI.Models;
 
 namespace LibraryAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/books")]
     [ApiController]
     public class BooksController : ControllerBase
     {
@@ -20,7 +20,7 @@ namespace LibraryAPI.Controllers
             _context = context;
         }
 
-        // GET: api/Books
+        // GET: api/books
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Book>>> GetBooks()
         {
@@ -31,7 +31,7 @@ namespace LibraryAPI.Controllers
             return await _context.Books.ToListAsync();
         }
 
-        // GET: api/Books/5
+        // GET: api/books/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Book>> GetBook(long id)
         {
@@ -49,7 +49,7 @@ namespace LibraryAPI.Controllers
             return book;
         }
 
-        // PUT: api/Books/5
+        // PUT: api/books/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBook(long id, Book book)
@@ -80,7 +80,7 @@ namespace LibraryAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Books
+        // POST: api/books
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Book>> PostBook(Book book)
@@ -95,7 +95,7 @@ namespace LibraryAPI.Controllers
             return CreatedAtAction("GetBook", new { id = book.Id }, book);
         }
 
-        // DELETE: api/Books/5
+        // DELETE: api/books/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBook(long id)
         {
