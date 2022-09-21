@@ -12,9 +12,28 @@ namespace LibraryAPI.Controllers {
             _context = context;
         }
 
+        /* Listar todos los libros.
+           o, regresar el que tenga un título específico */
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Book>>> GetBooks() {
             return await _context.Books.ToListAsync();
+        }
+
+        // Obtener el primer libro de la tabla.
+        [HttpGet("first")]
+        public async Task<ActionResult<Book>> GetFirst() {
+            return await _context.Books.FirstOrDefaultAsync();
+        }
+
+        // Obtener un libro por isbn.
+        [HttpGet("{isbn}")]
+        public async Task<ActionResult<Book>> GetBook([FromRoute] string isbn) {
+            var book = await _context.Books.FirstOrDefaultAsync(x => x.ISBN == isbn);
+
+            if(book == null)
+                return NotFound();
+        
+            return book;
         }
 
         [HttpGet("{id}")]

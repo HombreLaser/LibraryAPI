@@ -13,7 +13,7 @@ namespace LibraryAPI.Controllers {
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Author>>> getAuthors() {
+        public async Task<ActionResult<IEnumerable<Author>>> GetAuthors() {
             if(_context.Authors == null) {
                 return NotFound();
             }
@@ -32,6 +32,18 @@ namespace LibraryAPI.Controllers {
                 return NotFound();
 
             return author;
+        }
+
+        // Obtener los libros de un autor.
+        [HttpGet("{id}/books")]
+        public async Task<ActionResult<IEnumerable<Book>>> GetAuthorBooks(long id) {
+            return await _context.Books.Where(x => x.AuthorId == id).ToListAsync();
+        }
+
+        // Obtener primer objeto de la tabla.
+        [HttpGet("first")]
+        public async Task<ActionResult<Author>> GetFirst() {
+            return await _context.Authors.FirstOrDefaultAsync();
         }
 
         [HttpPut("{id}")]
