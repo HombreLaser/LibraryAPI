@@ -36,7 +36,7 @@ namespace LibraryAPI.Controllers {
             return book;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult<Book>> GetBook(long id) {
             if (_context.Books == null)
                 return NotFound();
