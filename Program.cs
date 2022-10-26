@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using LibraryAPI.Models;
+using LibraryAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,7 @@ builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.Re
 builder.Services.AddDbContext<LibraryContext>(opt => opt.UseNpgsql(builder.Configuration.GetConnectionString("LibraryContext")));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHostedService<LoggerService>();
 
 var app = builder.Build();
 
