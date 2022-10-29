@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LibraryAPI.Models;
+using LibraryAPI.Filters;
 
 namespace LibraryAPI.Controllers {
+    [ServiceFilter(typeof(ActionFilter))]
     [Route("api/authors")]
     [ApiController]
     public class AuthorsController : ControllerBase {

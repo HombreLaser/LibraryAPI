@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using LibraryAPI.Models;
+using LibraryAPI.Filters;
 using LibraryAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,7 @@ builder.Services.AddDbContext<LibraryContext>(opt => opt.UseNpgsql(builder.Confi
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHostedService<LoggerService>();
+builder.Services.AddScoped<ActionFilter>();
 
 var app = builder.Build();
 
