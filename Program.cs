@@ -17,6 +17,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHostedService<LoggerService>();
 builder.Services.AddScoped<ActionFilter>();
+builder.Services.AddAutoMapper(typeof(Program));
 // JWT Config.
 builder.Services.AddAuthentication(options => {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

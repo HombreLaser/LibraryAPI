@@ -7,6 +7,6 @@ namespace LibraryAPI.Models {
 	public ICollection<GroupUserAccount>? Users { get; set; }
 	[Required]
 	[Name]
-	public string? Name {get; set; }
+	public string? Name { get; set; }
     }
 }

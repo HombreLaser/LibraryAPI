@@ -6,11 +6,11 @@ namespace LibraryAPI.Models {
 	public long Id { get; set; }
 	[Required]
 	public string? Email { get; set; }
-        private string? _password;
-        [Required]
+    private string? _password;
+    [Required]
 	public string? Password { get { return _password; } set { _password = HashPassword(value); } }
 	public ICollection<GroupUserAccount>? Groups { get; set; }
-        private PasswordHasher<UserAccount> _hasher;
+    private PasswordHasher<UserAccount> _hasher;
 
 	public UserAccount() {
 	    _hasher = new PasswordHasher<UserAccount>();

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/luis/Documentos/LCC/7mo Semestre/BackEnd/LibraryAPI/LibraryAPI.csproj": {}
+    "/mnt/Personal/Documentos/LCC/7mo Semestre/BackEnd/LibraryAPI/LibraryAPI.csproj": {}
   },
   "projects": {
-    "/home/luis/Documentos/LCC/7mo Semestre/BackEnd/LibraryAPI/LibraryAPI.csproj": {
+    "/mnt/Personal/Documentos/LCC/7mo Semestre/BackEnd/LibraryAPI/LibraryAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/luis/Documentos/LCC/7mo Semestre/BackEnd/LibraryAPI/LibraryAPI.csproj",
+        "projectUniqueName": "/mnt/Personal/Documentos/LCC/7mo Semestre/BackEnd/LibraryAPI/LibraryAPI.csproj",
         "projectName": "LibraryAPI",
-        "projectPath": "/home/luis/Documentos/LCC/7mo Semestre/BackEnd/LibraryAPI/LibraryAPI.csproj",
+        "projectPath": "/mnt/Personal/Documentos/LCC/7mo Semestre/BackEnd/LibraryAPI/LibraryAPI.csproj",
         "packagesPath": "/home/luis/.nuget/packages/",
-        "outputPath": "/home/luis/Documentos/LCC/7mo Semestre/BackEnd/LibraryAPI/obj/",
+        "outputPath": "/mnt/Personal/Documentos/LCC/7mo Semestre/BackEnd/LibraryAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/luis/.nuget/NuGet/NuGet.Config"
@@ -38,6 +38,22 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.AspNetCore.Cryptography.KeyDerivation": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -47,6 +63,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[6.0.9, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[6.0.1, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -74,7 +94,7 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.9, 6.0.9]"
+              "version": "[6.0.10, 6.0.10]"
             }
           ],
           "frameworkReferences": {
@@ -85,7 +105,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.109/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.110/RuntimeIdentifierGraph.json"
         }
       }
     }
