@@ -1,15 +1,11 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
 
+// Singleton service.
 namespace LibraryAPI.Services {
-    public class LoggerService : IHostedService {
-        private readonly IWebHostEnvironment env;
-        private readonly string log_file = "Log.txt";
+    public class LoggerService : BaseService, IHostedService {
         private Timer timer;
 
-	public LoggerService(IWebHostEnvironment env) {
-            this.env = env;
-        }
+	public LoggerService(IWebHostEnvironment env) : base(env) { }
 
 	public Task StartAsync(CancellationToken cancel_token) {
             timer = new Timer(DoWork, null, TimeSpan.Zero, TimeSpan.FromMinutes(5));
@@ -24,14 +20,6 @@ namespace LibraryAPI.Services {
             LogToFile("Stopping task...\n");
             timer.Dispose();
             return Task.CompletedTask;
-        }
-
-	private void LogToFile(string message) {
-            var path = $@"{env.ContentRootPath}/wwwroot/{log_file}";
-
-	    using (StreamWriter w = new StreamWriter(path, append: true)) {
-                w.WriteLine(message);
-            }
         }
     }
 }

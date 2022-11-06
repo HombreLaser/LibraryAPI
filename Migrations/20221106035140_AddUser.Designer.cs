@@ -3,6 +3,7 @@ using System;
 using LibraryAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LibraryAPI.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    partial class LibraryContextModelSnapshot : ModelSnapshot
+    [Migration("20221106035140_AddUser")]
+    partial class AddUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,38 +90,6 @@ namespace LibraryAPI.Migrations
                     b.ToTable("Books");
                 });
 
-            modelBuilder.Entity("LibraryAPI.Models.Group", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Groups");
-                });
-
-            modelBuilder.Entity("LibraryAPI.Models.GroupUserAccount", b =>
-                {
-                    b.Property<long>("UserAccountId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("GroupId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("UserAccountId", "GroupId");
-
-                    b.HasIndex("GroupId");
-
-                    b.ToTable("GroupUserAccounts");
-                });
-
             modelBuilder.Entity("LibraryAPI.Models.UserAccount", b =>
                 {
                     b.Property<long>("Id")
@@ -152,38 +122,9 @@ namespace LibraryAPI.Migrations
                     b.Navigation("Author");
                 });
 
-            modelBuilder.Entity("LibraryAPI.Models.GroupUserAccount", b =>
-                {
-                    b.HasOne("LibraryAPI.Models.Group", "Group")
-                        .WithMany("Users")
-                        .HasForeignKey("GroupId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LibraryAPI.Models.UserAccount", "UserAccount")
-                        .WithMany("Groups")
-                        .HasForeignKey("UserAccountId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Group");
-
-                    b.Navigation("UserAccount");
-                });
-
             modelBuilder.Entity("LibraryAPI.Models.Author", b =>
                 {
                     b.Navigation("Books");
-                });
-
-            modelBuilder.Entity("LibraryAPI.Models.Group", b =>
-                {
-                    b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("LibraryAPI.Models.UserAccount", b =>
-                {
-                    b.Navigation("Groups");
                 });
 #pragma warning restore 612, 618
         }
